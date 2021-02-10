@@ -28865,8 +28865,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823938853}
   m_LocalRotation: {x: 0, y: 0, z: 0.013438593, w: 0.9999097}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0, z: -0.124}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 301398049}
   - {fileID: 731055225}
@@ -29152,9 +29152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType: 3
   proximityType: 3
-  scaleMinimum: 0.03
-  scaleMaximum: 0.03
-  relativeToInitialState: 0
+  scaleMinimum: 1
+  scaleMaximum: 1
+  relativeToInitialState: 1
 --- !u!1001 &1833938185
 PrefabInstance:
   m_ObjectHideFlags: 0
