@@ -22137,7 +22137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1444992838
 Transform:
   m_ObjectHideFlags: 0
@@ -28866,7 +28866,7 @@ Transform:
   m_GameObject: {fileID: 1823938853}
   m_LocalRotation: {x: 0, y: 0, z: 0.013438593, w: 0.9999097}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 301398049}
   - {fileID: 731055225}
@@ -28982,8 +28982,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98de877dee5fc341b4eb59dfdab266c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoConstraintSelection: 1
-  selectedConstraints: []
+  autoConstraintSelection: 0
+  selectedConstraints:
+  - {fileID: 1823938863}
+  - {fileID: 1823938859}
 --- !u!114 &1823938859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29150,9 +29152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType: 3
   proximityType: 3
-  scaleMinimum: 0.3
-  scaleMaximum: 5
-  relativeToInitialState: 1
+  scaleMinimum: 0.03
+  scaleMaximum: 0.03
+  relativeToInitialState: 0
 --- !u!1001 &1833938185
 PrefabInstance:
   m_ObjectHideFlags: 0
