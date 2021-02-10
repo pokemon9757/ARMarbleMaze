@@ -33,5 +33,10 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "PickUp") {
             other.gameObject.SetActive(false);
         }
+        Debug.Log("Triggerred " + other.name);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided " + collision.collider.name);
     }
 }
