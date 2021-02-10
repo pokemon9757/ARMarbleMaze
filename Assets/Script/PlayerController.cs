@@ -16,9 +16,8 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(Vector2 movementValue)
     {
-        Vector2 movementVector = movementValue;
-        movementX = movementVector.x;
-        movementY = movementVector.y;
+        movementX = movementValue.x;
+        movementY = movementValue.y;
 
     }
 
