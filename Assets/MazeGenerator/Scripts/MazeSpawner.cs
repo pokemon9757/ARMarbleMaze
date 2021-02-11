@@ -95,7 +95,6 @@ public class MazeSpawner : MonoBehaviour
                     var quaterRotation = GoalPrefab.transform.rotation;
                     Vector3 r = quaterRotation.eulerAngles;
                     tmp = Instantiate(GoalPrefab, new Vector3(x, GoalPrefab.transform.position.y, z), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
-                    Debug.Log("Rotate x" + r.x);
                     tmp.transform.parent = transform;
                     goalExisted = true;
                     GoalPrefab.SetActive(false);
