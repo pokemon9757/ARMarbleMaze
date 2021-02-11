@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 //<summary>
 //Ball movement controlls and simple third-person-style camera
@@ -10,7 +11,7 @@ public class RollerBall : MonoBehaviour {
 	public AudioClip JumpSound = null;
 	public AudioClip HitSound = null;
 	public AudioClip CoinSound = null;
-
+	public List<int> layersToIgnore;
 	private Rigidbody mRigidBody = null;
 	private AudioSource mAudioSource = null;
 	private bool mFloorTouched = false;
@@ -18,6 +19,9 @@ public class RollerBall : MonoBehaviour {
 	void Start () {
 		mRigidBody = GetComponent<Rigidbody> ();
 		mAudioSource = GetComponent<AudioSource> ();
+		for(int i = 0; i < layersToIgnore.Count; i++) {
+			Physics.IgnoreLayerCollision(gameObject.layer, layersToIgnore[i], true);
+		}
 	}
 
 	void FixedUpdate () {
