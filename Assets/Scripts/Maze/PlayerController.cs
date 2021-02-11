@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     public List<int> layersToIgnore; 
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         foreach( int i in layersToIgnore)
             Physics.IgnoreLayerCollision(this.gameObject.layer, i, true);
+
+        source = GetComponent<AudioSource>();
     }
 
     void OnMove(Vector2 movementValue)

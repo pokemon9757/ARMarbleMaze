@@ -1276,11 +1276,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Algorithm: 0
-  FullRandom: 0
+  FullRandom: 1
   RandomSeed: 1
   Floor: {fileID: 651633523}
   Wall: {fileID: 1212621780}
   Pillar: {fileID: 705406541}
+  Traps: {fileID: 0}
   Rows: 5
   Columns: 5
   CellWidth: 4
