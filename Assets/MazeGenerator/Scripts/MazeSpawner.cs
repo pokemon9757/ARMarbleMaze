@@ -19,6 +19,7 @@ public class MazeSpawner : MonoBehaviour {
 	public GameObject Floor = null;
 	public GameObject Wall = null;
 	public GameObject Pillar = null;
+    public GameObject Traps = null;
 	public int Rows = 5;
 	public int Columns = 5;
 	public float CellWidth = 5;
@@ -95,5 +96,6 @@ public class MazeSpawner : MonoBehaviour {
         }
         Floor.SetActive(false);
         Wall.SetActive(false);
+
     }
 }
