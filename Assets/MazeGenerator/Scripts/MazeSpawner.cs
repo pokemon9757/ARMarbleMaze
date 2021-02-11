@@ -127,7 +127,7 @@ public class MazeSpawner : MonoBehaviour
                 trapLocations.Add(rand);
                 float x = rand * CellWidth;
                 float z = rand * CellHeight;
-                GameObject tmp = Instantiate(Trap, new Vector3(x, 0, z), Quaternion.identity) as GameObject;
+                GameObject tmp = Instantiate(Trap, new Vector3(x, Trap.transform.position.y, z), Quaternion.identity) as GameObject;
                 tmp.transform.parent = transform;
                 noOfTraps++;
             }
