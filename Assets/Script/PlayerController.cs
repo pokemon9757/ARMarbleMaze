@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+    public List<int> layersToIgnore; 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        foreach( int i in layersToIgnore)
+            Physics.IgnoreLayerCollision(this.gameObject.layer, i, true);
     }
 
     void OnMove(Vector2 movementValue)
