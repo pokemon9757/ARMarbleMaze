@@ -92,9 +92,13 @@ public class MazeSpawner : MonoBehaviour
                 }
                 if (cell.IsGoal && GoalPrefab != null && !goalExisted)
                 {
-                    tmp = Instantiate(GoalPrefab, new Vector3(x, GoalPrefab.transform.position.y, z), Quaternion.Euler(0, 0, 0)) as GameObject;
+                    var quaterRotation = GoalPrefab.transform.rotation;
+                    Vector3 r = quaterRotation.eulerAngles;
+                    tmp = Instantiate(GoalPrefab, new Vector3(x, GoalPrefab.transform.position.y, z), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
+                    Debug.Log("Rotate x" + r.x);
                     tmp.transform.parent = transform;
                     goalExisted = true;
+                    GoalPrefab.SetActive(false);
                 }
             }
         }
@@ -116,6 +120,8 @@ public class MazeSpawner : MonoBehaviour
         {
             int noOfTraps = 0;
             List<int> trapLocations = new List<int>();
+            var quaterRotation = Trap.transform.rotation;
+            Vector3 r = quaterRotation.eulerAngles;
             while (noOfTraps < NumberOfTraps)
             {
                 int rand;
@@ -127,7 +133,8 @@ public class MazeSpawner : MonoBehaviour
                 trapLocations.Add(rand);
                 float x = rand * CellWidth;
                 float z = rand * CellHeight;
-                GameObject tmp = Instantiate(Trap, new Vector3(x, Trap.transform.position.y, z), Quaternion.identity) as GameObject;
+                
+                GameObject tmp = Instantiate(Trap, new Vector3(x, Trap.transform.position.y, z), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
                 tmp.transform.parent = transform;
                 noOfTraps++;
             }
