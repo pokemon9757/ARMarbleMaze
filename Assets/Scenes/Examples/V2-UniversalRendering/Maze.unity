@@ -6091,6 +6091,7 @@ MonoBehaviour:
   Algorithm: 0
   FullRandom: 0
   RandomSeed: 1234
+  Ground: {fileID: 1407900847}
   Floor: {fileID: 691479314}
   Wall: {fileID: 1803450709}
   Pillar: {fileID: 0}
@@ -6605,7 +6606,6 @@ MonoBehaviour:
   player: {fileID: 1928631547}
   SideUp: {fileID: 471570550}
   SideDown: {fileID: 1285833363}
-  ground: {fileID: 1407900847}
 --- !u!1001 &786328831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12960,6 +12960,7 @@ MonoBehaviour:
   Algorithm: 0
   FullRandom: 0
   RandomSeed: 1
+  Ground: {fileID: 1407900847}
   Floor: {fileID: 1142525773}
   Wall: {fileID: 950926088}
   Pillar: {fileID: 0}
@@ -18793,6 +18794,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2308226, guid: 6414ea9cfa2ccc24a95c775ffa926968, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e9203b88de76e74da3c38a881d8d881, type: 2}
     - target: {fileID: 5492230, guid: 6414ea9cfa2ccc24a95c775ffa926968, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
