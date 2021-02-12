@@ -909,6 +909,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109325876}
   m_CullTransparentMesh: 0
+--- !u!1 &123712545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1627420809522976, guid: d927f226198a4c041848215cdda6fd4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407900846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &123712546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123712545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab745543750ef54c941362e7666d431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 759541585}
 --- !u!1001 &146635922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -942,7 +961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 415016, guid: afd19ab1d4bb70b499bb2f62171a522d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 415016, guid: afd19ab1d4bb70b499bb2f62171a522d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6079,7 +6098,7 @@ MonoBehaviour:
   NumberOfTraps: 2
   Rows: 5
   Columns: 5
-  scale: 1
+  scale: 0.1
   CellWidth: 5
   CellHeight: 5
   AddGaps: 0
@@ -6276,7 +6295,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 855386165}
+      objectReference: {fileID: 759541585}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d3b36f175a633f429d7bda54c76550d, type: 3}
 --- !u!1 &691479314 stripped
@@ -6397,6 +6416,7 @@ GameObject:
   - component: {fileID: 759541579}
   - component: {fileID: 759541578}
   - component: {fileID: 759541577}
+  - component: {fileID: 759541585}
   m_Layer: 9
   m_Name: Maze
   m_TagString: Untagged
@@ -6562,12 +6582,30 @@ Transform:
   m_GameObject: {fileID: 759541576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 855386164}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &759541585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759541576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34f91564c078f349b53a69507784ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  currentPosition: 0
+  player: {fileID: 1928631547}
+  SideUp: {fileID: 471570550}
+  SideDown: {fileID: 1285833363}
+  ground: {fileID: 1407900847}
 --- !u!1001 &786328831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6757,7 +6795,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855386164}
-  - component: {fileID: 855386165}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -6784,23 +6821,6 @@ Transform:
   m_Father: {fileID: 759541584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &855386165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855386163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34f91564c078f349b53a69507784ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentPosition: 0
-  player: {fileID: 1928631547}
-  SideUp: {fileID: 471570550}
-  SideDown: {fileID: 1285833363}
 --- !u!1001 &891475760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12408,7 +12428,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 855386165}
+      objectReference: {fileID: 759541585}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d3b36f175a633f429d7bda54c76550d, type: 3}
 --- !u!4 &1142525772 stripped
@@ -12947,7 +12967,7 @@ MonoBehaviour:
   NumberOfTraps: 2
   Rows: 5
   Columns: 5
-  scale: 1
+  scale: 0.1
   CellWidth: 5
   CellHeight: 5
   AddGaps: 0
@@ -18780,7 +18800,7 @@ PrefabInstance:
     - target: {fileID: 11471494, guid: 6414ea9cfa2ccc24a95c775ffa926968, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 855386165}
+      objectReference: {fileID: 759541585}
     - target: {fileID: 11471494, guid: 6414ea9cfa2ccc24a95c775ffa926968, type: 3}
       propertyPath: layersToIgnore.Array.size
       value: 1

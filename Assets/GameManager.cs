@@ -50,5 +50,4 @@ public class GameManager : MonoBehaviour
         // Debug.Log("start point " + startPoint);
         player.transform.position = startPoint;
     }
-
 }
