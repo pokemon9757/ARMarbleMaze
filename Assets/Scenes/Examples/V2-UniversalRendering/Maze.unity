@@ -1299,7 +1299,7 @@ MonoBehaviour:
   NumberOfTraps: 2
   Rows: 5
   Columns: 5
-  scale: 1
+  scale: 0.1
   CellWidth: 5
   CellHeight: 5
   AddGaps: 0
@@ -1783,7 +1783,7 @@ Transform:
   m_GameObject: {fileID: 759541576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 855386164}
   m_Father: {fileID: 0}
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   NumberOfTraps: 2
   Rows: 5
   Columns: 5
-  scale: 1
+  scale: 0.1
   CellWidth: 5
   CellHeight: 5
   AddGaps: 0

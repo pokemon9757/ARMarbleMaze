@@ -140,6 +140,8 @@ public class MazeSpawner : MonoBehaviour
             List<int> trapLocations = new List<int>();
             var quaterRotation = Trap.transform.rotation;
             Vector3 r = quaterRotation.eulerAngles;
+            // var pos = ScalePos(Trap.transform.position, Trap.transform.localScale, scale);
+
             while (noOfTraps < NumberOfTraps)
             {
                 int rand;
@@ -151,11 +153,10 @@ public class MazeSpawner : MonoBehaviour
                 trapLocations.Add(rand);
                 float x = rand * CellWidth;
                 float z = rand * CellHeight;
-
+        
                 GameObject tmp = Instantiate(Trap, (Trap.transform.position + new Vector3(x, 0, z)), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
                 // tmp.transform.parent = transform;
                 noOfTraps++;
-                tmp.transform.localScale *= scale;
             }
             Trap.SetActive(false);
         }
@@ -173,11 +174,11 @@ public class MazeSpawner : MonoBehaviour
         float newY = 0;
         if (pos.y >= 0)
         {
-            newY = Ground.position.y + pos.y;
+            newY = Ground.position.y + Ground.localScale.y * scale + pos.y;
         }
         else
         {
-            newY = Ground.position.y + pos.y ;
+            newY = Ground.position.y + pos.y;
         }
         return new Vector3(newX, newY, newZ);
     }
