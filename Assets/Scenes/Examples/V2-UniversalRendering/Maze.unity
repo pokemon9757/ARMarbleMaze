@@ -1291,7 +1291,7 @@ MonoBehaviour:
   Algorithm: 0
   FullRandom: 0
   RandomSeed: 1234
-  Ground: {fileID: 0}
+  Ground: {fileID: 1407900847}
   Floor: {fileID: 691479314}
   Wall: {fileID: 1803450709}
   Pillar: {fileID: 0}
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   NumberOfTraps: 2
   Rows: 5
   Columns: 5
-  scale: 0.1
+  scale: 1
   CellWidth: 5
   CellHeight: 5
   AddGaps: 0
@@ -1783,7 +1783,7 @@ Transform:
   m_GameObject: {fileID: 759541576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 855386164}
   m_Father: {fileID: 0}
@@ -2236,7 +2236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 498872, guid: 9de82ec743bb24449a99f5cf1e325d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.9
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 498872, guid: 9de82ec743bb24449a99f5cf1e325d61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3366,7 +3366,7 @@ MonoBehaviour:
   Algorithm: 0
   FullRandom: 0
   RandomSeed: 1
-  Ground: {fileID: 0}
+  Ground: {fileID: 1407900847}
   Floor: {fileID: 1142525773}
   Wall: {fileID: 950926088}
   Pillar: {fileID: 0}
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   NumberOfTraps: 2
   Rows: 5
   Columns: 5
-  scale: 0.1
+  scale: 1
   CellWidth: 5
   CellHeight: 5
   AddGaps: 0

@@ -170,8 +170,15 @@ public class MazeSpawner : MonoBehaviour
         var z = pos.z * (pos.z > 0 ? scale : -scale * -1);
         var newX = Ground.position.x - Ground.localScale.x * scale / 5 * 2;
         var newZ = Ground.position.z - Ground.localScale.z * scale / 5 * 2;
-        var newY = Ground.position.y + Ground.localScale.y * scale / 2;
-        
-        return new Vector3(newX, pos.y > 0 ? newY : -newY, newZ);
+        float newY = 0;
+        if (pos.y >= 0)
+        {
+            newY = Ground.position.y + pos.y;
+        }
+        else
+        {
+            newY = Ground.position.y + pos.y ;
+        }
+        return new Vector3(newX, newY, newZ);
     }
 }
