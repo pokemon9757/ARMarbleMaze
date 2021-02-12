@@ -19,6 +19,7 @@ public class MazeSpawner : MonoBehaviour
     public MazeGenerationAlgorithm Algorithm = MazeGenerationAlgorithm.PureRecursive;
     public bool FullRandom = false;
     public int RandomSeed = 12345;
+    public Transform Ground = null;
     public GameObject Floor = null;
     public GameObject Wall = null;
     public GameObject Pillar = null;
@@ -68,10 +69,10 @@ public class MazeSpawner : MonoBehaviour
         Wall.transform.localScale *= scale;
         GoalPrefab.transform.localScale *= scale;
         Trap.transform.localScale *= scale;
-        Floor.transform.position = ScalePosY(Floor.transform.position, scale);
-        Wall.transform.position = ScalePosY(Wall.transform.position, scale);
-        GoalPrefab.transform.position = ScalePosY(Wall.transform.position, scale);
-        Trap.transform.position = ScalePosY(Wall.transform.position, scale);
+        Floor.transform.position = ScalePos(Floor.transform.position, Floor.transform.localScale, scale);
+        Wall.transform.position = ScalePos(Wall.transform.position, Wall.transform.localScale, scale);
+        GoalPrefab.transform.position = ScalePos(GoalPrefab.transform.position, GoalPrefab.transform.localScale, scale);
+        Trap.transform.position = ScalePos(Trap.transform.position, Trap.transform.localScale, scale);
         for (int row = 0; row < Rows; row++)
         {
             for (int column = 0; column < Columns; column++)
@@ -162,11 +163,15 @@ public class MazeSpawner : MonoBehaviour
         Wall.SetActive(false);
     }
 
-    private Vector3 ScalePosY(Vector3 size, float scale)
+    private Vector3 ScalePos(Vector3 pos, Vector3 size, float scale)
     {
-        var x = size.x * scale;
-        var y = size.y * (size.y > 0 ? scale : -scale * -1);
-        var z = size.z * scale;
-        return new Vector3(x, y, z);
+        var x = pos.x * (pos.x > 0 ? scale : -scale * -1);
+        var y = pos.y * (pos.y > 0 ? scale : -scale * -1);
+        var z = pos.z * (pos.z > 0 ? scale : -scale * -1);
+        var newX = Ground.position.x - Ground.localScale.x * scale / 5 * 2;
+        var newZ = Ground.position.z - Ground.localScale.z * scale / 5 * 2;
+        var newY = Ground.position.y + Ground.localScale.y * scale / 2;
+        
+        return new Vector3(newX, pos.y > 0 ? newY : -newY, newZ);
     }
 }
