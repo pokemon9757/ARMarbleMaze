@@ -120,6 +120,9 @@ public class RollerBall : MonoBehaviour
             {
                 mAudioSource.PlayOneShot(CoinSound);
             }
+
+            Effects[0].Play();
+            
             Destroy(other.gameObject);
         }
     }
