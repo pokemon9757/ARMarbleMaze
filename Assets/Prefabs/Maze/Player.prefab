@@ -128,9 +128,9 @@ MonoBehaviour:
   ViewCamera: {fileID: 0}
   JumpSound: {fileID: 0}
   Effects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1096524181331509188, guid: 97025227031c59c47873c585b195f407, type: 3}
+  - {fileID: 2925880945590760835, guid: c068e7c354e2aa34b9ac2363eabeea16, type: 3}
+  - {fileID: 1324126723143638878, guid: c0b25056c3bedc9418bfe68154fb1a96, type: 3}
   HitSound: {fileID: 0}
   CoinSound: {fileID: 0}
   layersToIgnore: 09000000
