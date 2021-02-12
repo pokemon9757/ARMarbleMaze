@@ -1291,6 +1291,7 @@ MonoBehaviour:
   Algorithm: 0
   FullRandom: 0
   RandomSeed: 1234
+  Ground: {fileID: 0}
   Floor: {fileID: 691479314}
   Wall: {fileID: 1803450709}
   Pillar: {fileID: 0}
@@ -1802,7 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   currentPosition: 0
-  player: {fileID: 0}
+  player: {fileID: 1636089056}
   SideUp: {fileID: 471570550}
   SideDown: {fileID: 1285833363}
 --- !u!1001 &786328831
@@ -3365,6 +3366,7 @@ MonoBehaviour:
   Algorithm: 0
   FullRandom: 0
   RandomSeed: 1
+  Ground: {fileID: 0}
   Floor: {fileID: 1142525773}
   Wall: {fileID: 950926088}
   Pillar: {fileID: 0}
@@ -3933,6 +3935,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1632074633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1636089056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441394717689481133, guid: 3957a58a623e9a84a8ae73f96826354c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1643053367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1636525313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4030,6 +4038,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 855386164}
     m_Modifications:
+    - target: {fileID: 6441394717679383087, guid: 3957a58a623e9a84a8ae73f96826354c,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 759541585}
     - target: {fileID: 6441394717679383087, guid: 3957a58a623e9a84a8ae73f96826354c,
         type: 3}
       propertyPath: Effects.Array.data[0]
