@@ -17,12 +17,12 @@ public class Exit : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Debug.Log("triggered exit level " + _gameManager.currentLevel);
-        if(other.tag == "Player") {
+    
+    void OnCollisionEnter(Collision other) {
+        if (other.collider.tag == "Player")
+        {
             gameManager.foundExit = true;
             gameManager.FinishLevel();
         }
-    }
+    } 
 }

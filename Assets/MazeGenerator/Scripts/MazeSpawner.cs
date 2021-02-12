@@ -87,8 +87,9 @@ public class MazeSpawner : MonoBehaviour
 
                 tmp = Instantiate(Floor, (new Vector3(x, 0, z) + Floor.transform.position), Quaternion.Euler(r.x, 0, 0)) as GameObject;
                 tmp.transform.parent = transform;
-                  if(!startExisted) {
-                    startLocation = new Vector3(x, 0, z) + Floor.transform.position;
+                if (!startExisted)
+                {
+                    startLocation = new Vector3(x, 0, z) + Floor.transform.localPosition;
                 }
                 if (cell.WallRight)
                 {
@@ -118,7 +119,7 @@ public class MazeSpawner : MonoBehaviour
                     tmp.transform.parent = transform;
                     goalExisted = true;
                 }
-              
+
                 // Debug.Log("wall size" + tmp.transform.localScale);
             }
         }
@@ -159,7 +160,7 @@ public class MazeSpawner : MonoBehaviour
                 float z = rand * CellHeight;
 
                 GameObject tmp = Instantiate(Trap, (Trap.transform.position + new Vector3(x, 0, z)), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
-                // tmp.transform.parent = transform;
+                tmp.transform.parent = transform;
                 noOfTraps++;
             }
 
@@ -181,11 +182,11 @@ public class MazeSpawner : MonoBehaviour
         float newY = 0;
         if (pos.y >= 0)
         {
-            newY = Ground.position.y + Ground.localScale.y * scale + pos.y;
+            newY = Ground.localPosition.y + Ground.localScale.y * scale + pos.y;
         }
         else
         {
-            newY = Ground.position.y + pos.y;
+            newY = Ground.localPosition.y + pos.y;
         }
         return new Vector3(newX, newY, newZ);
     }

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject SideDown;
     public bool foundExit { get; set; }
     public enum Position { Top, Bottom };
+    public Vector3 startPos { get; set; }
     MazeSide up;
     MazeSide down;
     // Start is called before the first frame update
@@ -30,35 +31,38 @@ public class GameManager : MonoBehaviour
         up.level = currentLevel;
         down.level = currentLevel + 1;
         var tmp = SideUp.GetComponent<MazeSpawner>().startLocation;
-        tmp.y += player.transform.localScale.y * SideUp.GetComponent<MazeSpawner>().scale;
-        player.transform.position = tmp;
-    
+        tmp.y += player.transform.localScale.y;
+        startPos = tmp;
+        player.transform.localPosition = tmp;
     }
 
 
     public void FinishLevel()
     {
-        foundExit = false;
-        Vector3 startPoint = Vector3.zero;
-        Vector3 temp = Vector3.zero;
-        switch (currentPosition)
+        if (foundExit)
         {
-            case Position.Top:
-                currentPosition = Position.Bottom;
-                temp = SideDown.GetComponent<MazeSpawner>().startLocation;
-                temp.y -= player.transform.localScale.y * SideUp.GetComponent<MazeSpawner>().scale;
-                // temp.y = -temp.y;
-                startPoint = temp;
-                break;
+            foundExit = false;
+            Vector3 temp = Vector3.zero;
+            switch (currentPosition)
+            {
+                case Position.Top:
+                    currentPosition = Position.Bottom;
+                    temp = SideDown.GetComponent<MazeSpawner>().startLocation;
+                    temp.y -= player.transform.localScale.y;
 
-            case Position.Bottom:
-                currentPosition = Position.Top;
-                temp = SideUp.GetComponent<MazeSpawner>().startLocation;
-                temp.y += player.transform.localScale.y * SideUp.GetComponent<MazeSpawner>().scale;
-                startPoint = temp;
-                break;
+                    startPos = temp;
+                    currentLevel += 1;
+                    break;
+
+                case Position.Bottom:
+                    currentPosition = Position.Top;
+                    temp = SideUp.GetComponent<MazeSpawner>().startLocation;
+                    temp.y += player.transform.localScale.y;
+                    startPos = temp;
+                    break;
+            }
         }
         // Debug.Log("start point " + startPoint);
-        player.transform.position = startPoint;
+        player.transform.localPosition = startPos;
     }
 }
