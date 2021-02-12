@@ -63,10 +63,10 @@ public class MazeSpawner : MonoBehaviour
         mMazeGenerator.GenerateMaze();
         CellWidth = Floor.transform.localScale.x * scale;
         CellHeight = Floor.transform.localScale.z * scale;
-        var x = Wall.transform.localScale.x * (Wall.transform.localScale.x > 0 ? scale : -scale);
-        var y = Wall.transform.localScale.y * (Wall.transform.localScale.y > 0 ? scale : -scale);
-        var z = Wall.transform.localScale.z * (Wall.transform.localScale.z > 0 ? scale : -scale);
-        Wall.transform.localScale = new Vector3(x, y, z);
+        // var x = Wall.transform.localScale.x * (Wall.transform.localScale.x > 0 ? scale : -scale);
+        // var y = Wall.transform.localScale.y * (Wall.transform.localScale.y > 0 ? scale : -scale);
+        // var z = Wall.transform.localScale.z * (Wall.transform.localScale.z > 0 ? scale : -scale);
+        // Wall.transform.localScale = new Vector3(x, y, z);
         Floor.transform.localScale *= scale;
         Floor.transform.position *= scale;
 
