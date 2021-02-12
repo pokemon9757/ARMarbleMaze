@@ -9,6 +9,7 @@ public class RollerBall : MonoBehaviour
 {
     public GameObject ViewCamera = null;
     public AudioClip JumpSound = null;
+    public List<ParticleSystem> Effects = new List<ParticleSystem>();
     public AudioClip HitSound = null;
     public AudioClip CoinSound = null;
     public List<int> layersToIgnore;
