@@ -63,13 +63,15 @@ public class MazeSpawner : MonoBehaviour
         mMazeGenerator.GenerateMaze();
         CellWidth = Floor.transform.localScale.x * scale;
         CellHeight = Floor.transform.localScale.z * scale;
-        // var x = Wall.transform.localScale.x * (Wall.transform.localScale.x > 0 ? scale : -scale);
-        // var y = Wall.transform.localScale.y * (Wall.transform.localScale.y > 0 ? scale : -scale);
-        // var z = Wall.transform.localScale.z * (Wall.transform.localScale.z > 0 ? scale : -scale);
-        // Wall.transform.localScale = new Vector3(x, y, z);
-        Floor.transform.localScale *= scale;
-        Floor.transform.position *= scale;
 
+        Floor.transform.localScale *= scale;
+        Wall.transform.localScale *= scale;
+        GoalPrefab.transform.localScale *= scale;
+        Trap.transform.localScale *= scale;
+        Floor.transform.position = ScalePosY(Floor.transform.position, scale);
+        Wall.transform.position = ScalePosY(Wall.transform.position, scale);
+        GoalPrefab.transform.position = ScalePosY(Wall.transform.position, scale);
+        Trap.transform.position = ScalePosY(Wall.transform.position, scale);
         for (int row = 0; row < Rows; row++)
         {
             for (int column = 0; column < Columns; column++)
@@ -160,7 +162,11 @@ public class MazeSpawner : MonoBehaviour
         Wall.SetActive(false);
     }
 
-    private Vector3 ScaleSize(Vector3 scale) {
-        return Vector3.zero;
+    private Vector3 ScalePosY(Vector3 size, float scale)
+    {
+        var x = size.x * scale;
+        var y = size.y * (size.y > 0 ? scale : -scale * -1);
+        var z = size.z * scale;
+        return new Vector3(x, y, z);
     }
 }

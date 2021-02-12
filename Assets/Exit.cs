@@ -8,7 +8,7 @@ public class Exit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _gameManager = GetComponentInParent<GameManager>();
+        // _gameManager = GetComponentInParent<GameManager>();
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("triggered exit level " + _gameManager.currentLevel);
+        // Debug.Log("triggered exit level " + _gameManager.currentLevel);
         if(other.tag == "Player") {
             _gameManager.foundExit = true;
         }
