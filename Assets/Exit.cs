@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
-    GameManager _gameManager;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,8 @@ public class Exit : MonoBehaviour
     {
         // Debug.Log("triggered exit level " + _gameManager.currentLevel);
         if(other.tag == "Player") {
-            _gameManager.foundExit = true;
+            gameManager.foundExit = true;
+            gameManager.FinishLevel();
         }
     }
 }

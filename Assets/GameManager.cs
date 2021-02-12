@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
         down = SideDown.GetComponent<MazeSide>();
         up.level = currentLevel;
         down.level = currentLevel + 1;
+        var tmp = SideUp.GetComponent<MazeSpawner>().startLocation;
+        tmp.y += player.transform.localScale.y * SideUp.GetComponent<MazeSpawner>().scale;
+        player.transform.position = tmp;
+    
     }
 
 
@@ -36,15 +40,22 @@ public class GameManager : MonoBehaviour
     {
         foundExit = false;
         Vector3 startPoint = Vector3.zero;
+        Vector3 temp = Vector3.zero;
         switch (currentPosition)
         {
             case Position.Top:
                 currentPosition = Position.Bottom;
-                startPoint = new Vector3(0, -1, 0);
+                temp = SideDown.GetComponent<MazeSpawner>().startLocation;
+                temp.y -= player.transform.localScale.y * SideUp.GetComponent<MazeSpawner>().scale;
+                // temp.y = -temp.y;
+                startPoint = temp;
                 break;
+
             case Position.Bottom:
                 currentPosition = Position.Top;
-                startPoint = new Vector3(0, 1, 0);
+                temp = SideUp.GetComponent<MazeSpawner>().startLocation;
+                temp.y += player.transform.localScale.y * SideUp.GetComponent<MazeSpawner>().scale;
+                startPoint = temp;
                 break;
         }
         // Debug.Log("start point " + startPoint);

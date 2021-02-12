@@ -15,7 +15,7 @@ public class MazeSpawner : MonoBehaviour
         OldestTree,
         RecursiveDivision,
     }
-
+    public Vector3 startLocation { get; set; }
     public MazeGenerationAlgorithm Algorithm = MazeGenerationAlgorithm.PureRecursive;
     public bool FullRandom = false;
     public int RandomSeed = 12345;
@@ -33,6 +33,7 @@ public class MazeSpawner : MonoBehaviour
     public bool AddGaps = true;
     public GameObject GoalPrefab = null;
     private bool goalExisted = false;
+    private bool startExisted = false;
 
 
     private BasicMazeGenerator mMazeGenerator = null;
@@ -86,6 +87,9 @@ public class MazeSpawner : MonoBehaviour
 
                 tmp = Instantiate(Floor, (new Vector3(x, 0, z) + Floor.transform.position), Quaternion.Euler(r.x, 0, 0)) as GameObject;
                 tmp.transform.parent = transform;
+                  if(!startExisted) {
+                    startLocation = new Vector3(x, 0, z) + Floor.transform.position;
+                }
                 if (cell.WallRight)
                 {
                     tmp = Instantiate(Wall, (new Vector3(x + CellWidth / 2, 0, z) + Wall.transform.position), Quaternion.Euler(0, 90, 0)) as GameObject;// right
@@ -113,9 +117,8 @@ public class MazeSpawner : MonoBehaviour
                     tmp = Instantiate(GoalPrefab, (GoalPrefab.transform.position + new Vector3(x, 0, z)), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
                     tmp.transform.parent = transform;
                     goalExisted = true;
-                    GoalPrefab.SetActive(false);
                 }
-
+              
                 // Debug.Log("wall size" + tmp.transform.localScale);
             }
         }
@@ -132,6 +135,7 @@ public class MazeSpawner : MonoBehaviour
                     tmp.transform.localScale *= scale;
                 }
             }
+
             Pillar.SetActive(false);
         }
         if (Trap != null)
@@ -153,13 +157,16 @@ public class MazeSpawner : MonoBehaviour
                 trapLocations.Add(rand);
                 float x = rand * CellWidth;
                 float z = rand * CellHeight;
-        
+
                 GameObject tmp = Instantiate(Trap, (Trap.transform.position + new Vector3(x, 0, z)), Quaternion.Euler(r.x, r.y, r.z)) as GameObject;
                 // tmp.transform.parent = transform;
                 noOfTraps++;
             }
-            Trap.SetActive(false);
+
         }
+
+        Trap.SetActive(false);
+        GoalPrefab.SetActive(false);
         Floor.SetActive(false);
         Wall.SetActive(false);
     }
